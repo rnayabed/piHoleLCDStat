@@ -1,4 +1,4 @@
-#piHoleLCDStat
+# piHoleLCDStat
 
 A Pi-Hole + System Info dash for Raspberry Pi
 
