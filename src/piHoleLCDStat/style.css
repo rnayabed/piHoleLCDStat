@@ -10,4 +10,10 @@
 Label {
     -fx-text-fill:white;
     -fx-font-family: "Roboto Regular";
+    -fx-font-size: 14;
+}
+
+.scroll-pane {
+   -fx-background: black;
+   -fx-border-color: black;
 }

@@ -7,138 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/latest_build/piHoleLCDStat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/piHoleLCDStat_jar/piHoleLCDStat.jar" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/piHoleLCDStat.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/confUpdater.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/confUpdater.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/Roboto-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/Roboto-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/config" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/install_fonts" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/install" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/bin/java" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/bin/java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/bin/keytool" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/bin/keytool" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/conf/net.properties" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/conf/net.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/conf/sdp/sdp.conf.template" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/conf/sdp/sdp.conf.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/conf/security/java.policy" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/conf/security/java.policy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/conf/security/java.security" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/conf/security/java.security" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/conf/security/policy/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/conf/security/policy/README.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/conf/security/policy/limited/default_US_export.policy" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/conf/security/policy/limited/default_US_export.policy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/conf/security/policy/limited/default_local.policy" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/conf/security/policy/limited/default_local.policy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/conf/security/policy/limited/exempt_local.policy" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/conf/security/policy/limited/exempt_local.policy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/conf/security/policy/unlimited/default_US_export.policy" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/conf/security/policy/unlimited/default_US_export.policy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/conf/security/policy/unlimited/default_local.policy" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/conf/security/policy/unlimited/default_local.policy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/conf/sound.properties" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/conf/sound.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.base/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.base/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.base/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.base/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.base/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.base/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.base/aes.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.base/aes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.base/asm.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.base/asm.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.base/c-libutl.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.base/c-libutl.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.base/cldr.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.base/cldr.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.base/icu.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.base/icu.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.base/public_suffix.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.base/public_suffix.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.base/unicode.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.base/unicode.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.datatransfer/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.datatransfer/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.datatransfer/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.datatransfer/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.datatransfer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.datatransfer/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.desktop/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.desktop/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.desktop/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.desktop/colorimaging.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/colorimaging.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.desktop/freetype.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/freetype.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.desktop/giflib.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/giflib.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.desktop/harfbuzz.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/harfbuzz.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.desktop/jpeg.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/jpeg.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.desktop/lcms.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/lcms.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.desktop/libpng.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/libpng.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.desktop/mesa3d.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/mesa3d.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.desktop/opengl.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/opengl.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.desktop/xwd.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/xwd.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.prefs/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.prefs/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.prefs/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.prefs/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.prefs/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.prefs/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.xml/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.xml/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.xml/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.xml/bcel.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/bcel.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.xml/dom.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/dom.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.xml/jcup.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/jcup.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.xml/xalan.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/xalan.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/java.xml/xerces.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/xerces.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/javafx.base/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/javafx.base/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/javafx.base/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/javafx.base/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/javafx.base/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/javafx.base/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/javafx.controls/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/javafx.controls/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/javafx.controls/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/javafx.controls/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/javafx.controls/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/javafx.controls/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/javafx.graphics/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/javafx.graphics/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/javafx.graphics/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/javafx.graphics/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/javafx.graphics/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/javafx.graphics/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/javafx.graphics/jpeg_fx.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/javafx.graphics/jpeg_fx.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/javafx.graphics/mesa3d.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/javafx.graphics/mesa3d.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/javafx.graphics/opengl_fx.md" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/javafx.graphics/opengl_fx.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/jdk.unsupported/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/jdk.unsupported/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/jdk.unsupported/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/jdk.unsupported/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/legal/jdk.unsupported/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/legal/jdk.unsupported/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/classlist" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/classlist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/client/libjsig.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/client/libjsig.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/client/libjvm.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/client/libjvm.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/javafx.platform.properties" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/javafx.platform.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/javafx.properties" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/javafx.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/jexec" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/jexec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/jrt-fs.jar" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/jrt-fs.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/jspawnhelper" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/jspawnhelper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/jvm.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/jvm.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libawt.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libawt.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libawt_headless.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libawt_headless.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libawt_xawt.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libawt_xawt.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libdecora_sse.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libdecora_sse.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libfontmanager.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libfontmanager.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libfreetype.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libfreetype.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libglass.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libglass.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libglass_monocle.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libglass_monocle.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libglass_monocle_epd.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libglass_monocle_epd.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libglass_monocle_x11.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libglass_monocle_x11.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libjava.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libjava.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libjavafx_font.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libjavafx_font.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libjavafx_font_freetype.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libjavafx_font_freetype.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libjavafx_font_pango.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libjavafx_font_pango.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libjavafx_iio.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libjavafx_iio.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libjavajpeg.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libjavajpeg.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libjawt.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libjawt.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libjimage.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libjimage.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libjli.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libjli.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libjsig.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libjsig.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libjsound.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libjsound.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/liblcms.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/liblcms.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libmlib_image.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libmlib_image.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libnet.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libnet.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libnio.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libnio.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libprefs.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libprefs.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libprism_common.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libprism_common.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libprism_es2_monocle.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libprism_es2_monocle.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libprism_sw.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libprism_sw.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libsplashscreen.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libsplashscreen.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libverify.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libverify.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/libzip.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/libzip.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/minimal/libjsig.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/minimal/libjsig.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/minimal/libjvm.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/minimal/libjvm.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/modules" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/modules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/psfont.properties.ja" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/psfont.properties.ja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/psfontj2d.properties" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/psfontj2d.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/security/blacklisted.certs" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/security/blacklisted.certs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/security/cacerts" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/security/cacerts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/security/default.policy" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/security/default.policy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/security/public_suffix_list.dat" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/security/public_suffix_list.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/server/libjsig.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/server/libjsig.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/server/libjvm.so" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/server/libjvm.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/lib/tzdb.dat" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/lib/tzdb.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/jre/release" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/jre/release" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/piHoleLCDStat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/piHoleLCDStat.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/piHoleLCDStat/piHoleLCDStat_edit_config" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/piHoleLCDStat_edit_config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/piHoleLCDStat/confUpdater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/piHoleLCDStat/confUpdater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/config" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/piHoleLCDStat.jar" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/piHoleLCDStat.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/META-INF/piHoleLCDStat.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/confUpdater.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/dash$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/dash$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/dash$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/dash$pane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/dash.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/piHoleLCDStat/dash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/piHoleLCDStat/dash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/piHoleLCDStat/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/piHoleLCDStat/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +129,7 @@
       <recent name="D:\Coding\Java Projects\piHoleLCDStat" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Embedded Linux JVM.Pi 3b">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -317,7 +199,7 @@
       <option name="sshPort" value="22" />
       <option name="username" value="pi" />
       <option name="usingKey" value="false" />
-      <option name="vmParameters" value="-Dembedded=monocle -Dprism.targetvram=64M" />
+      <option name="vmParameters" value="-Dembedded=monocle -Dprism.verbose=true -Dmonocle.verbose=true -Dglass.platform=Monocle -Dprism.order=es2" />
       <option name="moduleName" value="piHoleLCDStat" />
       <option name="mainclass" value="piHoleLCDStat.Main" />
       <method v="2">
@@ -395,10 +277,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1582960819931" />
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582971268389">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583000912660">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582971268389" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583000912660" />
     <state x="728" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582957343300">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -415,26 +297,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="666" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1582964654596" />
-    <state width="1877" height="390" key="GridCell.Tab.0.bottom" timestamp="1582971284049">
+    <state width="1877" height="389" key="GridCell.Tab.0.bottom" timestamp="1583005892530">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="390" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582971284049" />
-    <state width="1877" height="390" key="GridCell.Tab.0.center" timestamp="1582971284049">
+    <state width="1877" height="389" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583005892530" />
+    <state width="1877" height="389" key="GridCell.Tab.0.center" timestamp="1583005892529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="390" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582971284049" />
-    <state width="1877" height="390" key="GridCell.Tab.0.left" timestamp="1582971284049">
+    <state width="1877" height="389" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583005892529" />
+    <state width="1877" height="389" key="GridCell.Tab.0.left" timestamp="1583005892529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="390" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582971284049" />
-    <state width="1877" height="390" key="GridCell.Tab.0.right" timestamp="1582971284049">
+    <state width="1877" height="389" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583005892529" />
+    <state width="1877" height="389" key="GridCell.Tab.0.right" timestamp="1583005892529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="390" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582971284049" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1582971162732">
+    <state width="1877" height="389" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583005892529" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1582999534983">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582971162732" />
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582999534983" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1582875868169">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -447,9 +329,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="591" y="65" width="737" height="909" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582876247674" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1582963152548">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583003028414">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582963152548" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583003028414" />
   </component>
 </project>

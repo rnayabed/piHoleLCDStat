@@ -8,7 +8,9 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.CacheHint;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -25,6 +27,7 @@ public class dash extends StackPane {
     Gauge queriesGauge;
 
     VBox systemStatsVBox;
+    VBox otherPiHoleStatsVBox;
 
     Gauge cpuGauge;
     Gauge memoryGauge;
@@ -44,6 +47,18 @@ public class dash extends StackPane {
 
     double sHeight, sWidth;
 
+    boolean piHoleStatus;
+
+    Label statusLabel;
+    Label uniqueDomainsLabel;
+    Label queriesForwardedLabel;
+    Label queriesCachedLabel;
+    Label clientsEverSeenLabel;
+    Label uniqueClientsLabel;
+    Label topDomainLabel;
+    Label topAdLabel;
+    Label topClientLabel;
+
     public dash()
     {
         try {
@@ -52,6 +67,7 @@ public class dash extends StackPane {
             queriesBlockedGauge.setSkinType(Gauge.SkinType.SLIM);
             queriesBlockedGauge.setValueColor(Color.WHITE);
             queriesBlockedGauge.setTitleColor(Color.WHITE);
+            queriesBlockedGauge.setBarColor(Color.LIGHTSKYBLUE);
             queriesBlockedGauge.setTitle("Queries Blocked");
             queriesBlockedGauge.setValue(0);
             queriesBlockedGauge.getStyleClass().add("bg");
@@ -69,11 +85,12 @@ public class dash extends StackPane {
             queriesGauge.setBackgroundPaint(Paint.valueOf("#000000"));
             queriesGauge.setUnit("0");
             queriesGauge.setCache(true);
+            queriesGauge.setBarColor(Color.LIGHTSKYBLUE);
             queriesGauge.setCacheHint(CacheHint.SPEED);
 
             Label vboxHeader = new Label("System Stats");
             vboxHeader.setPadding(new Insets(0,0,10,0));
-            vboxHeader.setFont(new Font("Roboto Regular",15));
+            vboxHeader.setFont(new Font(15));
 
             cpuGauge = new Gauge();
             cpuGauge.setSkinType(Gauge.SkinType.SIMPLE_SECTION);
@@ -142,14 +159,54 @@ public class dash extends StackPane {
             systemStatsVBox.setAlignment(Pos.TOP_CENTER);
             systemStatsVBox.getStyleClass().add("bg");
 
+
+            HBox otherPiHoleStatsHeading = new HBox(new Label("Other Pi-Hole Stats"));
+            otherPiHoleStatsHeading.setAlignment(Pos.CENTER);
+            HBox.setHgrow(otherPiHoleStatsHeading,Priority.SOMETIMES);
+            otherPiHoleStatsHeading.setPadding(new Insets(0,0,2,0));
+
+            statusLabel = new Label("Enabled");
+            HBox statusH = new HBox(new Label("Status: "),statusLabel);
+
+            uniqueDomainsLabel = new Label("0");
+            HBox uniqueDomansH = new HBox(new Label("Unique Domains: "),uniqueDomainsLabel);
+
+            queriesForwardedLabel = new Label("0");
+            HBox queriesForwardedH = new HBox(new Label("Queries Forwarded: "),queriesForwardedLabel);
+
+            queriesCachedLabel = new Label("0");
+            HBox queriesCachedH = new HBox(new Label("Queries Cached: "),queriesCachedLabel);
+
+            clientsEverSeenLabel = new Label("0");
+            HBox clientsEverSeenH = new HBox(new Label("Clients ever seen: "),clientsEverSeenLabel);
+
+            uniqueClientsLabel = new Label("0");
+            HBox uniqueClientsH = new HBox(new Label("Unique Clients: "),uniqueClientsLabel);
+
+            topDomainLabel = new Label("Getting ...");
+            topDomainLabel.setWrapText(true);
+
+            topAdLabel = new Label("Getting ...");
+            topAdLabel.setWrapText(true);
+
+            topClientLabel = new Label();
+            topClientLabel.setWrapText(true);
+
+            otherPiHoleStatsVBox = new VBox(otherPiHoleStatsHeading,statusH,uniqueDomansH,queriesForwardedH,queriesCachedH,clientsEverSeenH,uniqueClientsH,topDomainLabel,topAdLabel,topClientLabel);
+            statusLabel.setTextFill(Color.LIGHTGREEN);
+            otherPiHoleStatsVBox.setPadding(new Insets(0,5,0,5));
+            otherPiHoleStatsVBox.setSpacing(3);
+            otherPiHoleStatsVBox.getStyleClass().add("bg");
+
             getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-            getStyleClass().add("basePane");
 
             setPadding(new Insets(5));
             getChildren().add(systemStatsVBox);
+            getChildren().add(otherPiHoleStatsVBox);
+
 
             queriesPaneMoreInfoLabel = new Label("0 Blocked\n0 Domains On Blocklist");
-            queriesPaneMoreInfoLabel.setFont(new Font("Roboto Regular",13));
+            queriesPaneMoreInfoLabel.setFont(new Font(13));
             queriesPaneMoreInfoLabel.setPadding(new Insets(0,0,0,5));
 
             queriesPane = new VBox(queriesGauge,queriesPaneMoreInfoLabel);
@@ -164,20 +221,7 @@ public class dash extends StackPane {
 
             queriesBlockedGauge.toFront();
 
-            setOnTouchPressed(event -> {
-                if(currentPane == pane.queriesBlocked)
-                {
-                    switchPane(pane.queries);
-                }
-                else if(currentPane == pane.queries)
-                {
-                    switchPane(pane.systemStats);
-                }
-                else if(currentPane == pane.systemStats)
-                {
-                    switchPane(pane.queriesBlocked);
-                }
-            });
+            setOnTouchPressed(event -> switchNextPane());
 
             init();
             debug("Init Done!");
@@ -189,6 +233,19 @@ public class dash extends StackPane {
             debug("Quitting ...");
             isQuit = true;
             Platform.exit();
+        }
+    }
+
+    private void switchNextPane()
+    {
+        if (currentPane == pane.queries) {
+            Platform.runLater(() -> switchPane(pane.systemStats));
+        } else if (currentPane == pane.systemStats) {
+            Platform.runLater(() -> switchPane(pane.otherPiHoleStats));
+        } else if(currentPane == pane.otherPiHoleStats) {
+            Platform.runLater(() -> switchPane(pane.queriesBlocked));
+        } else if(currentPane == pane.queriesBlocked) {
+            Platform.runLater(() -> switchPane(pane.queries));
         }
     }
 
@@ -225,13 +282,15 @@ public class dash extends StackPane {
             queriesPane.toFront();
         else if(p==pane.systemStats)
             systemStatsVBox.toFront();
+        else if(p==pane.otherPiHoleStats)
+            otherPiHoleStatsVBox.toFront();
 
         currentPane = p;
     }
     
     pane currentPane = pane.queriesBlocked;
     enum pane{
-        queriesBlocked,queries,systemStats
+        queriesBlocked,queries,systemStats,otherPiHoleStats
     }
 
 
@@ -281,9 +340,9 @@ public class dash extends StackPane {
                 br = new BufferedReader(new InputStreamReader(s.getInputStream()));
                 debug("... Done! Ready!");
 
+                prevCommand = ">stats";
                 bw.write(">stats\r\n");
                 bw.flush();
-
 
                 StringBuilder output = new StringBuilder();
 
@@ -292,54 +351,142 @@ public class dash extends StackPane {
 
                     if (output.toString().endsWith("---EOM---")) {
 
-                        String[] outputArr = output.toString().split("\n");
-                        for (String eachVal : outputArr) {
-                            String[] part = eachVal.split(" ");
-                            switch (part[0]) {
-                                case "ads_percentage_today":
-                                    queriesBlockedPercentToday = Double.parseDouble(part[1]);
-                                    break;
-                                case "ads_blocked_today":
-                                    queriesBlockedToday = part[1];
-                                    break;
-                                case "dns_queries_today":
-                                    totalDnsQueries = Long.parseLong(part[1]);
-                                    break;
-                                case "domains_being_blocked":
-                                    totalBlocked = Long.parseLong(part[1]);
-                                    break;
+                        if(prevCommand.equals(">stats"))
+                        {
+                            String[] outputArr = output.toString().split("\n");
+                            for (String eachVal : outputArr) {
+                                String[] part = eachVal.split(" ");
+                                switch (part[0]) {
+                                    case "ads_percentage_today":
+                                        queriesBlockedPercentToday = Double.parseDouble(part[1]);
+                                        break;
+                                    case "ads_blocked_today":
+                                        queriesBlockedToday = part[1];
+                                        break;
+                                    case "dns_queries_today":
+                                        totalDnsQueries = Long.parseLong(part[1]);
+                                        break;
+                                    case "domains_being_blocked":
+                                        totalBlocked = Long.parseLong(part[1]);
+                                        break;
+                                    case "status":
+                                        piHoleStatus = part[1].equals("enabled");
+                                        break;
+                                    case "unique_domains":
+                                        Platform.runLater(()->uniqueDomainsLabel.setText(part[1]));
+                                        break;
+                                    case "queries_forwarded":
+                                        Platform.runLater(()->queriesForwardedLabel.setText(part[1]));
+                                        break;
+                                    case "queries_cached":
+                                        Platform.runLater(()->queriesCachedLabel.setText(part[1]));
+                                        break;
+                                    case "clients_ever_seen":
+                                        Platform.runLater(()->clientsEverSeenLabel.setText(part[1]));
+                                        break;
+                                    case "unique_clients":
+                                        Platform.runLater(()->uniqueClientsLabel.setText(part[1]));
+                                        break;
+                                }
                             }
+
+                            setPiHoleStatusUIChanges();
+
+                            Platform.runLater(() -> {
+                                queriesBlockedGauge.setValue(queriesBlockedPercentToday);
+
+                                queriesGauge.setValue(totalDnsQueries);
+                                queriesPaneMoreInfoLabel.setText(queriesBlockedToday + " Blocked\n" + totalBlocked + " Domains On Blocklist");
+                            });
+
+                            if (upperLimit < totalDnsQueries) {
+                                upperLimit = totalDnsQueries;
+                                Platform.runLater(() -> queriesGauge.setMaxValue(totalDnsQueries));
+                                if (totalDnsQueries > 500) {
+                                    Platform.runLater(() -> queriesGauge.setMinValue(totalDnsQueries - 500));
+                                }
+                            }
+                            Thread.sleep(piHoleStatsFetcherSleep/4);
+                            prevCommand = ">top-domains (1)";
+                            bw.write(">top-domains (1)\r\n");
+                            bw.flush();
                         }
-
-                        Platform.runLater(() -> {
-                            queriesBlockedGauge.setValue(queriesBlockedPercentToday);
-
-                            queriesGauge.setValue(totalDnsQueries);
-                            queriesPaneMoreInfoLabel.setText(queriesBlockedToday + " Blocked\n" + totalBlocked + " Domains On Blocklist");
-                        });
-
-                        if (upperLimit < totalDnsQueries) {
-                            upperLimit = totalDnsQueries;
-                            Platform.runLater(() -> queriesGauge.setMaxValue(totalDnsQueries));
-                            if (totalDnsQueries > 500) {
-                                Platform.runLater(() -> queriesGauge.setMinValue(totalDnsQueries - 500));
-                            }
+                        else if(prevCommand.equals(">top-domains (1)"))
+                        {
+                            String[] topDomainArr = secondLineFetcher(output.toString()).split(" ");
+                            Platform.runLater(()->topDomainLabel.setText("Top Domain: ("+topDomainArr[1]+" Queries)\n"+topDomainArr[2]));
+                            Thread.sleep(piHoleStatsFetcherSleep/4);
+                            prevCommand = ">top-ads (1)";
+                            bw.write(">top-ads (1)\r\n");
+                            bw.flush();
+                        }
+                        else if(prevCommand.equals(">top-ads (1)"))
+                        {
+                            String[] topAdArr = secondLineFetcher(output.toString()).split(" ");
+                            Platform.runLater(()->topAdLabel.setText("Top Ad: ("+topAdArr[1]+" Queries)\n"+topAdArr[2]));
+                            Thread.sleep(piHoleStatsFetcherSleep/4);
+                            prevCommand = ">top-clients (1)";
+                            bw.write(">top-clients (1)\r\n");
+                            bw.flush();
+                        }
+                        else if(prevCommand.equals(">top-clients (1)"))
+                        {
+                            String[] topClient = secondLineFetcher(output.toString()).split(" ");
+                            if(topClient.length==4)
+                                Platform.runLater(()->topClientLabel.setText("Top Client: ("+topClient[1]+" Queries)\n"+topClient[2]+"\n"+topClient[3]));
+                            else
+                                Platform.runLater(()->topClientLabel.setText("Top Client:  ("+topClient[1]+" Queries)\n"+topClient[2]));
+                            Thread.sleep(piHoleStatsFetcherSleep/4);
+                            prevCommand = ">stats";
+                            bw.write(">stats\r\n");
+                            bw.flush();
                         }
 
                         output = new StringBuilder();
-                        Thread.sleep(piHoleStatsFetcherSleep);
-                        bw.write(">stats\r\n");
-                        bw.flush();
                     } else {
                         output.append((char) l);
                     }
                 }
+
+                bw.write(">quit\r\n");
+                bw.flush();
+                bw.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
             return null;
         }
     };
+
+    String prevCommand="";
+
+    boolean prevStatus = false;
+    private void setPiHoleStatusUIChanges()
+    {
+        if(piHoleStatus!=prevStatus)
+        {
+            prevStatus = piHoleStatus;
+
+            if(piHoleStatus)
+            {
+                Platform.runLater(()->{
+                    statusLabel.setText("Enabled");
+                    statusLabel.setTextFill(Color.LIGHTGREEN);
+                    queriesBlockedGauge.setBarColor(Color.LIGHTSKYBLUE);
+                    queriesGauge.setBarColor(Color.LIGHTSKYBLUE);
+                });
+            }
+            else
+            {
+                Platform.runLater(()->{
+                    statusLabel.setText("Disabled");
+                    statusLabel.setTextFill(Color.RED);
+                    queriesBlockedGauge.setBarColor(Color.RED);
+                    queriesGauge.setBarColor(Color.RED);
+                });
+            }
+        }
+    }
 
     double totalMem = 0;
     double usedMem = 0;
@@ -399,13 +546,7 @@ public class dash extends StackPane {
             try {
                 while (isPaneChangeTimerOn && !isQuit) {
                     Thread.sleep(paneChangerTaskSleep);
-                    if (currentPane == pane.queriesBlocked) {
-                        Platform.runLater(() -> switchPane(pane.queries));
-                    } else if (currentPane == pane.queries) {
-                        Platform.runLater(() -> switchPane(pane.systemStats));
-                    } else if (currentPane == pane.systemStats) {
-                        Platform.runLater(() -> switchPane(pane.queriesBlocked));
-                    }
+                    Platform.runLater(()->switchNextPane());
                 }
             } catch (Exception e) {
                 e.printStackTrace();
