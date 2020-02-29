@@ -1,0 +1,1 @@
+sudo jre/bin/java -Dembedded=monocle -Dglass.platform=Monocle -Dprism.targetvram=64M -Dprism.verbose=true -Djavafx.verbose=true -cp piHoleLCDStat.jar piHoleLCDStat.Main

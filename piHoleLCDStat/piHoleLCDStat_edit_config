@@ -1,0 +1,1 @@
+sudo jre/bin/java -cp piHoleLCDStat.jar piHoleLCDStat.confUpdater

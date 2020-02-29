@@ -1,0 +1,5 @@
+echo "Installing Fonts ..."
+sudo cp Roboto-Regular.ttf /usr/share/fonts/truetype/
+fc-cache -v -f
+echo "... Done!"
+
