@@ -51,8 +51,6 @@ cd <piHoleLCDStat extracted Directory>
 
 [7" 1024x600 display](https://github.com/dubbadhar/piHoleLCDStat/blob/master/screenshots/7_1024x600/README.md)
 
-***Screenshots may be rotated, i tried countless times to fix it, but couldn't fix***
-
 ### Libraries Used
 * [Medusa](https://github.com/HanSolo/Medusa) - Gauges
 
