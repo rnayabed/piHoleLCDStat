@@ -1,15 +1,19 @@
 # piHoleLCDStat
 
-A Pi-Hole + System Info dash for Raspberry Pi
+A [Pi-Hole](https://pi-hole.net/) + System Info dash for [Raspberry Pi](https://www.raspberrypi.org/)
 
 Built with JavaFX, Java
+
+**This program uses the Pi-Hole Telnet API and NOT THE JSON API**
+
+**Raspberry Pi : It is recommended to use the `Raspbian Desktop with Recommended Software installed` image for Raspberry Pi, as I never used the lite image to test it out. You can just turn on `Console Auto-login` from `raspi-config` to avoid loading the DE**
 
 ### How to install?
 
 1. Download the latest zip from [releases](https://github.com/dubbadhar/piHoleLCDStat/releases).
 2. Run `unzip piHoleLCDStat.zip` (Make sure you're in the same director)
 3. Then `cd piHoleLCDStat`
-4. Run `./install`, to run config and install necessary fonts.
+4. Run `./install`, to install necessary fonts and run config.
 
 ### How to use?
 
@@ -33,15 +37,26 @@ Currently the following settings/preferences can be changed :
 * systemStatsFetcherSleep - Change sleep terminal between System info fetched.
 * paneChangerTaskSleep - Change sleep terminal between change of Pane (Works only if Pane Changer mode is enabled).
 
+### Run at Startup
+
+1. Open `/etc/rc.local` as root.
+2. just before `exit 0` add the following lines 
+```
+cd <piHoleLCDStat extracted Directory>
+./piHoleLCDStat
+```
 ### Screenshots
 
-3.2" 320x240 display :
+[3.2" 320x240 display](https://github.com/dubbadhar/piHoleLCDStat/blob/master/screenshots/3_320x240/README.md)
 
-![queriesBlockedGauge](https://github.com/dubbadhar/piHoleLCDStat/blob/master/screenshots/3.2_320x240/20200302_013928.jpg)
+[7" 1024x600 display](https://github.com/dubbadhar/piHoleLCDStat/blob/master/screenshots/7_1024x600/README.md)
 
-![queriesPane](https://github.com/dubbadhar/piHoleLCDStat/blob/master/screenshots/3.2_320x240/20200302_013933.jpg)
+***Screenshots may be rotated, i tried countless times to fix it, but couldn't fix***
 
-![System Info](https://github.com/dubbadhar/piHoleLCDStat/blob/master/screenshots/3.2_320x240/20200302_013938.jpg)
+### Libraries Used
+* [Medusa](https://github.com/HanSolo/Medusa) - Gauges
 
-![Pi-Hole Other Info](https://github.com/dubbadhar/piHoleLCDStat/blob/master/screenshots/3.2_320x240/20200302_013942.jpg)
+### License 
+
+[GNU GPL v3](https://github.com/dubbadhar/piHoleLCDStat/blob/master/LICENSE) 
 
