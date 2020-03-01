@@ -8,14 +8,9 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.CacheHint;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
 
 import java.io.*;
 import java.net.Socket;
@@ -59,15 +54,22 @@ public class dash extends StackPane {
     Label topAdLabel;
     Label topClientLabel;
 
+    Color goodColour, badColour;
+
+    double fontSize;
+
     public dash()
     {
         try {
+            readConfig();
             debug("Init dash ...");
+
+            setStyle("-fx-font-size: "+fontSize);
             queriesBlockedGauge = new Gauge();
             queriesBlockedGauge.setSkinType(Gauge.SkinType.SLIM);
             queriesBlockedGauge.setValueColor(Color.WHITE);
             queriesBlockedGauge.setTitleColor(Color.WHITE);
-            queriesBlockedGauge.setBarColor(Color.LIGHTSKYBLUE);
+            queriesBlockedGauge.setBarColor(goodColour);
             queriesBlockedGauge.setTitle("Queries Blocked");
             queriesBlockedGauge.setValue(0);
             queriesBlockedGauge.getStyleClass().add("bg");
@@ -85,12 +87,8 @@ public class dash extends StackPane {
             queriesGauge.setBackgroundPaint(Paint.valueOf("#000000"));
             queriesGauge.setUnit("0");
             queriesGauge.setCache(true);
-            queriesGauge.setBarColor(Color.LIGHTSKYBLUE);
+            queriesGauge.setBarColor(goodColour);
             queriesGauge.setCacheHint(CacheHint.SPEED);
-
-            Label vboxHeader = new Label("System Stats");
-            vboxHeader.setPadding(new Insets(0,0,10,0));
-            vboxHeader.setFont(new Font(15));
 
             cpuGauge = new Gauge();
             cpuGauge.setSkinType(Gauge.SkinType.SIMPLE_SECTION);
@@ -155,12 +153,14 @@ public class dash extends StackPane {
             h2.setAlignment(Pos.CENTER);
             h2.setPadding(new Insets(0,1,0,1));
 
-            systemStatsVBox = new VBox(vboxHeader,h1,h2);
-            systemStatsVBox.setAlignment(Pos.TOP_CENTER);
+            systemStatsVBox = new VBox(h1,h2);
+            VBox.setVgrow(systemStatsVBox,Priority.SOMETIMES);
+            systemStatsVBox.setAlignment(Pos.CENTER);
             systemStatsVBox.getStyleClass().add("bg");
 
 
-            HBox otherPiHoleStatsHeading = new HBox(new Label("Other Pi-Hole Stats"));
+            Label x = new Label("Other Pi-Hole Stats");
+            HBox otherPiHoleStatsHeading = new HBox(x);
             otherPiHoleStatsHeading.setAlignment(Pos.CENTER);
             HBox.setHgrow(otherPiHoleStatsHeading,Priority.SOMETIMES);
             otherPiHoleStatsHeading.setPadding(new Insets(0,0,2,0));
@@ -192,11 +192,22 @@ public class dash extends StackPane {
             topClientLabel = new Label();
             topClientLabel.setWrapText(true);
 
-            otherPiHoleStatsVBox = new VBox(otherPiHoleStatsHeading,statusH,uniqueDomansH,queriesForwardedH,queriesCachedH,clientsEverSeenH,uniqueClientsH,topDomainLabel,topAdLabel,topClientLabel);
+            String hostName = getShellOutput("hostname");
+            String ip = getShellOutput("hostname -I");
+
+            Label hostLabel = new Label("Hostname : "+hostName);
+            hostLabel.setWrapText(true);
+
+            Label ipLabel = new Label("IP : "+ip);
+            ipLabel.setWrapText(true);
+
+
+            otherPiHoleStatsVBox = new VBox(otherPiHoleStatsHeading,hostLabel,ipLabel,statusH,uniqueDomansH,queriesForwardedH,queriesCachedH,clientsEverSeenH,uniqueClientsH,topDomainLabel,topAdLabel,topClientLabel);
             statusLabel.setTextFill(Color.LIGHTGREEN);
             otherPiHoleStatsVBox.setPadding(new Insets(0,5,0,5));
             otherPiHoleStatsVBox.setSpacing(3);
             otherPiHoleStatsVBox.getStyleClass().add("bg");
+
 
             getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
@@ -206,20 +217,30 @@ public class dash extends StackPane {
 
 
             queriesPaneMoreInfoLabel = new Label("0 Blocked\n0 Domains On Blocklist");
-            queriesPaneMoreInfoLabel.setFont(new Font(13));
             queriesPaneMoreInfoLabel.setPadding(new Insets(0,0,0,5));
 
             queriesPane = new VBox(queriesGauge,queriesPaneMoreInfoLabel);
+            VBox.setVgrow(queriesGauge,Priority.SOMETIMES);
             queriesPane.getStyleClass().add("bg");
             queriesPane.setSpacing(5);
             getChildren().add(queriesPane);
             getChildren().add(queriesBlockedGauge);
 
-            readConfig();
-
             setPrefSize(sWidth,sHeight);
 
             queriesBlockedGauge.toFront();
+
+            topClientLabel.setPrefWidth(sWidth-10);
+            topDomainLabel.setPrefWidth(sWidth-10);
+            topAdLabel.setPrefWidth(sWidth-10);
+            hostLabel.setPrefWidth(sWidth-10);
+            ipLabel.setPrefWidth(sWidth-10);
+
+            /*topClientLabel.prefWidthProperty().bind(otherPiHoleStatsVBox.widthProperty());
+            topDomainLabel.prefWidthProperty().bind(otherPiHoleStatsVBox.widthProperty());
+            topAdLabel.prefWidthProperty().bind(otherPiHoleStatsVBox.widthProperty());
+            hostLabel.prefWidthProperty().bind(otherPiHoleStatsVBox.widthProperty());
+            ipLabel.prefWidthProperty().bind(otherPiHoleStatsVBox.widthProperty());*/
 
             setOnTouchPressed(event -> switchNextPane());
 
@@ -268,6 +289,11 @@ public class dash extends StackPane {
 
         sHeight = Double.parseDouble(conf[7]);
         sWidth = Double.parseDouble(conf[8]);
+
+        fontSize = Double.parseDouble(conf[9]);
+
+        goodColour = Color.valueOf(conf[10]);
+        badColour = Color.valueOf(conf[11]);
 
         bf.close();
 
@@ -350,96 +376,93 @@ public class dash extends StackPane {
                     int l = br.read();
 
                     if (output.toString().endsWith("---EOM---")) {
-
-                        if(prevCommand.equals(">stats"))
-                        {
-                            String[] outputArr = output.toString().split("\n");
-                            for (String eachVal : outputArr) {
-                                String[] part = eachVal.split(" ");
-                                switch (part[0]) {
-                                    case "ads_percentage_today":
-                                        queriesBlockedPercentToday = Double.parseDouble(part[1]);
-                                        break;
-                                    case "ads_blocked_today":
-                                        queriesBlockedToday = part[1];
-                                        break;
-                                    case "dns_queries_today":
-                                        totalDnsQueries = Long.parseLong(part[1]);
-                                        break;
-                                    case "domains_being_blocked":
-                                        totalBlocked = Long.parseLong(part[1]);
-                                        break;
-                                    case "status":
-                                        piHoleStatus = part[1].equals("enabled");
-                                        break;
-                                    case "unique_domains":
-                                        Platform.runLater(()->uniqueDomainsLabel.setText(part[1]));
-                                        break;
-                                    case "queries_forwarded":
-                                        Platform.runLater(()->queriesForwardedLabel.setText(part[1]));
-                                        break;
-                                    case "queries_cached":
-                                        Platform.runLater(()->queriesCachedLabel.setText(part[1]));
-                                        break;
-                                    case "clients_ever_seen":
-                                        Platform.runLater(()->clientsEverSeenLabel.setText(part[1]));
-                                        break;
-                                    case "unique_clients":
-                                        Platform.runLater(()->uniqueClientsLabel.setText(part[1]));
-                                        break;
+                        switch (prevCommand) {
+                            case ">stats":
+                                String[] outputArr = output.toString().split("\n");
+                                for (String eachVal : outputArr) {
+                                    String[] part = eachVal.split(" ");
+                                    switch (part[0]) {
+                                        case "ads_percentage_today":
+                                            queriesBlockedPercentToday = Double.parseDouble(part[1]);
+                                            break;
+                                        case "ads_blocked_today":
+                                            queriesBlockedToday = part[1];
+                                            break;
+                                        case "dns_queries_today":
+                                            totalDnsQueries = Long.parseLong(part[1]);
+                                            break;
+                                        case "domains_being_blocked":
+                                            totalBlocked = Long.parseLong(part[1]);
+                                            break;
+                                        case "status":
+                                            piHoleStatus = part[1].equals("enabled");
+                                            break;
+                                        case "unique_domains":
+                                            Platform.runLater(() -> uniqueDomainsLabel.setText(part[1]));
+                                            break;
+                                        case "queries_forwarded":
+                                            Platform.runLater(() -> queriesForwardedLabel.setText(part[1]));
+                                            break;
+                                        case "queries_cached":
+                                            Platform.runLater(() -> queriesCachedLabel.setText(part[1]));
+                                            break;
+                                        case "clients_ever_seen":
+                                            Platform.runLater(() -> clientsEverSeenLabel.setText(part[1]));
+                                            break;
+                                        case "unique_clients":
+                                            Platform.runLater(() -> uniqueClientsLabel.setText(part[1]));
+                                            break;
+                                    }
                                 }
-                            }
 
-                            setPiHoleStatusUIChanges();
+                                setPiHoleStatusUIChanges();
 
-                            Platform.runLater(() -> {
-                                queriesBlockedGauge.setValue(queriesBlockedPercentToday);
+                                Platform.runLater(() -> {
+                                    queriesBlockedGauge.setValue(queriesBlockedPercentToday);
 
-                                queriesGauge.setValue(totalDnsQueries);
-                                queriesPaneMoreInfoLabel.setText(queriesBlockedToday + " Blocked\n" + totalBlocked + " Domains On Blocklist");
-                            });
+                                    queriesGauge.setValue(totalDnsQueries);
+                                    queriesPaneMoreInfoLabel.setText(queriesBlockedToday + " Blocked\n" + totalBlocked + " Domains On Blocklist");
+                                });
 
-                            if (upperLimit < totalDnsQueries) {
-                                upperLimit = totalDnsQueries;
-                                Platform.runLater(() -> queriesGauge.setMaxValue(totalDnsQueries));
-                                if (totalDnsQueries > 500) {
-                                    Platform.runLater(() -> queriesGauge.setMinValue(totalDnsQueries - 500));
+                                if (upperLimit < totalDnsQueries) {
+                                    upperLimit = totalDnsQueries;
+                                    Platform.runLater(() -> queriesGauge.setMaxValue(totalDnsQueries));
+                                    if (totalDnsQueries > 500) {
+                                        Platform.runLater(() -> queriesGauge.setMinValue(totalDnsQueries - 500));
+                                    }
                                 }
-                            }
-                            Thread.sleep(piHoleStatsFetcherSleep/4);
-                            prevCommand = ">top-domains (1)";
-                            bw.write(">top-domains (1)\r\n");
-                            bw.flush();
-                        }
-                        else if(prevCommand.equals(">top-domains (1)"))
-                        {
-                            String[] topDomainArr = secondLineFetcher(output.toString()).split(" ");
-                            Platform.runLater(()->topDomainLabel.setText("Top Domain: ("+topDomainArr[1]+" Queries)\n"+topDomainArr[2]));
-                            Thread.sleep(piHoleStatsFetcherSleep/4);
-                            prevCommand = ">top-ads (1)";
-                            bw.write(">top-ads (1)\r\n");
-                            bw.flush();
-                        }
-                        else if(prevCommand.equals(">top-ads (1)"))
-                        {
-                            String[] topAdArr = secondLineFetcher(output.toString()).split(" ");
-                            Platform.runLater(()->topAdLabel.setText("Top Ad: ("+topAdArr[1]+" Queries)\n"+topAdArr[2]));
-                            Thread.sleep(piHoleStatsFetcherSleep/4);
-                            prevCommand = ">top-clients (1)";
-                            bw.write(">top-clients (1)\r\n");
-                            bw.flush();
-                        }
-                        else if(prevCommand.equals(">top-clients (1)"))
-                        {
-                            String[] topClient = secondLineFetcher(output.toString()).split(" ");
-                            if(topClient.length==4)
-                                Platform.runLater(()->topClientLabel.setText("Top Client: ("+topClient[1]+" Queries)\n"+topClient[2]+"\n"+topClient[3]));
-                            else
-                                Platform.runLater(()->topClientLabel.setText("Top Client:  ("+topClient[1]+" Queries)\n"+topClient[2]));
-                            Thread.sleep(piHoleStatsFetcherSleep/4);
-                            prevCommand = ">stats";
-                            bw.write(">stats\r\n");
-                            bw.flush();
+                                Thread.sleep(piHoleStatsFetcherSleep / 4);
+                                prevCommand = ">top-domains (1)";
+                                bw.write(">top-domains (1)\r\n");
+                                bw.flush();
+                                break;
+                            case ">top-domains (1)":
+                                String[] topDomainArr = secondLineFetcher(output.toString()).split(" ");
+                                Platform.runLater(() -> topDomainLabel.setText("Top Domain: (" + topDomainArr[1] + " Queries)\n" + topDomainArr[2]));
+                                Thread.sleep(piHoleStatsFetcherSleep / 4);
+                                prevCommand = ">top-ads (1)";
+                                bw.write(">top-ads (1)\r\n");
+                                bw.flush();
+                                break;
+                            case ">top-ads (1)":
+                                String[] topAdArr = secondLineFetcher(output.toString()).split(" ");
+                                Platform.runLater(() -> topAdLabel.setText("Top Ad: (" + topAdArr[1] + " Queries)\n" + topAdArr[2]));
+                                Thread.sleep(piHoleStatsFetcherSleep / 4);
+                                prevCommand = ">top-clients (1)";
+                                bw.write(">top-clients (1)\r\n");
+                                bw.flush();
+                                break;
+                            case ">top-clients (1)":
+                                String[] topClient = secondLineFetcher(output.toString()).split(" ");
+                                if (topClient.length == 4)
+                                    Platform.runLater(() -> topClientLabel.setText("Top Client: (" + topClient[1] + " Queries)\n" + topClient[2] + "\n" + topClient[3]));
+                                else
+                                    Platform.runLater(() -> topClientLabel.setText("Top Client:  (" + topClient[1] + " Queries)\n" + topClient[2]));
+                                Thread.sleep(piHoleStatsFetcherSleep / 4);
+                                prevCommand = ">stats";
+                                bw.write(">stats\r\n");
+                                bw.flush();
+                                break;
                         }
 
                         output = new StringBuilder();
@@ -472,8 +495,8 @@ public class dash extends StackPane {
                 Platform.runLater(()->{
                     statusLabel.setText("Enabled");
                     statusLabel.setTextFill(Color.LIGHTGREEN);
-                    queriesBlockedGauge.setBarColor(Color.LIGHTSKYBLUE);
-                    queriesGauge.setBarColor(Color.LIGHTSKYBLUE);
+                    queriesBlockedGauge.setBarColor(goodColour);
+                    queriesGauge.setBarColor(goodColour);
                 });
             }
             else
@@ -481,8 +504,8 @@ public class dash extends StackPane {
                 Platform.runLater(()->{
                     statusLabel.setText("Disabled");
                     statusLabel.setTextFill(Color.RED);
-                    queriesBlockedGauge.setBarColor(Color.RED);
-                    queriesGauge.setBarColor(Color.RED);
+                    queriesBlockedGauge.setBarColor(badColour);
+                    queriesGauge.setBarColor(badColour);
                 });
             }
         }

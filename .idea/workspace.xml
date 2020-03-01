@@ -8,17 +8,133 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latest_build/config" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/latest_build/piHoleLCDStat.jar" beforeDir="false" afterPath="$PROJECT_DIR$/latest_build/piHoleLCDStat.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/META-INF/piHoleLCDStat.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/confUpdater.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/dash$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/dash$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/dash$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/dash$pane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/dash.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/piHoleLCDStat/piHoleLCDStat/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config" beforeDir="false" afterPath="$PROJECT_DIR$/config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/Roboto-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/install" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/bin/java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/bin/keytool" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/conf/net.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/conf/sdp/sdp.conf.template" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/conf/security/java.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/conf/security/java.security" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/conf/security/policy/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/conf/security/policy/limited/default_US_export.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/conf/security/policy/limited/default_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/conf/security/policy/limited/exempt_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/conf/security/policy/unlimited/default_US_export.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/conf/security/policy/unlimited/default_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/conf/sound.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.base/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.base/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.base/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.base/aes.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.base/asm.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.base/c-libutl.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.base/cldr.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.base/icu.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.base/public_suffix.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.base/unicode.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.datatransfer/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.datatransfer/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.datatransfer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/colorimaging.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/freetype.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/giflib.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/harfbuzz.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/jpeg.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/lcms.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/libpng.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/mesa3d.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/opengl.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.desktop/xwd.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.prefs/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.prefs/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.prefs/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/bcel.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/dom.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/jcup.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/xalan.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/java.xml/xerces.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/javafx.base/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/javafx.base/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/javafx.base/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/javafx.controls/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/javafx.controls/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/javafx.controls/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/javafx.graphics/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/javafx.graphics/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/javafx.graphics/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/javafx.graphics/jpeg_fx.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/javafx.graphics/mesa3d.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/javafx.graphics/opengl_fx.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/jdk.unsupported/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/jdk.unsupported/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/legal/jdk.unsupported/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/classlist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/client/libjsig.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/client/libjvm.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/javafx.platform.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/javafx.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/jexec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/jrt-fs.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/jspawnhelper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/jvm.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libawt.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libawt_headless.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libawt_xawt.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libdecora_sse.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libfontmanager.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libfreetype.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libglass.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libglass_monocle.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libglass_monocle_epd.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libglass_monocle_x11.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libjava.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libjavafx_font.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libjavafx_font_freetype.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libjavafx_font_pango.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libjavafx_iio.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libjavajpeg.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libjawt.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libjimage.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libjli.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libjsig.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libjsound.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/liblcms.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libmlib_image.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libnet.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libnio.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libprefs.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libprism_common.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libprism_es2_monocle.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libprism_sw.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libsplashscreen.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libverify.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/libzip.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/minimal/libjsig.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/minimal/libjvm.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/modules" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/psfont.properties.ja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/psfontj2d.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/security/blacklisted.certs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/security/cacerts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/security/default.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/security/public_suffix_list.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/server/libjsig.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/server/libjvm.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/lib/tzdb.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/jre/release" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/piHoleLCDStat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/piHoleLCDStat.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/latest_build/piHoleLCDStat_edit_config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/piHoleLCDStat/confUpdater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/piHoleLCDStat/confUpdater.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/piHoleLCDStat/dash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/piHoleLCDStat/dash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/piHoleLCDStat/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/piHoleLCDStat/style.css" afterDir="false" />
     </list>
@@ -297,22 +413,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="666" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1582964654596" />
-    <state width="1877" height="389" key="GridCell.Tab.0.bottom" timestamp="1583005892530">
+    <state width="1877" height="389" key="GridCell.Tab.0.bottom" timestamp="1583093261215">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="389" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583005892530" />
-    <state width="1877" height="389" key="GridCell.Tab.0.center" timestamp="1583005892529">
+    <state width="1877" height="389" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583093261215" />
+    <state width="1877" height="389" key="GridCell.Tab.0.center" timestamp="1583093261215">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="389" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583005892529" />
-    <state width="1877" height="389" key="GridCell.Tab.0.left" timestamp="1583005892529">
+    <state width="1877" height="389" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583093261215" />
+    <state width="1877" height="389" key="GridCell.Tab.0.left" timestamp="1583093261215">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="389" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583005892529" />
-    <state width="1877" height="389" key="GridCell.Tab.0.right" timestamp="1583005892529">
+    <state width="1877" height="389" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583093261215" />
+    <state width="1877" height="389" key="GridCell.Tab.0.right" timestamp="1583093261215">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="389" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583005892529" />
+    <state width="1877" height="389" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583093261215" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583057132753">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583057132753" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1583057132753">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583057132753" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1583057132753">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583057132753" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1583057132753">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583057132753" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1582999534983">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -329,9 +461,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="591" y="65" width="737" height="909" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582876247674" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583003028414">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1583086377680">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583003028414" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583086377680" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583057053272">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583057053272" />
   </component>
 </project>

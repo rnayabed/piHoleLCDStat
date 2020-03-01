@@ -16,6 +16,9 @@ public class confUpdater {
             String telNetIP;
             int telNetPort;
             double sHeight,sWidth;
+            double fontSize;
+
+            String goodColour,badColour;
 
             debug("Reading Current config ...");
 
@@ -35,6 +38,11 @@ public class confUpdater {
 
             sHeight = Double.parseDouble(conf[7]);
             sWidth = Double.parseDouble(conf[8]);
+
+            fontSize = Double.parseDouble(conf[9]);
+
+            goodColour = conf[10];
+            badColour = conf[11];
 
             debug("... Done!");
 
@@ -185,7 +193,7 @@ public class confUpdater {
                     }
                 }
 
-                debug("Enter Screen Height in Pixels)\n" +
+                debug("Enter Screen Height in Pixels\n" +
                         "Current Value: '"+sHeight+"'\n" +
                         "Enter '--' to not change at all.\n");
 
@@ -212,7 +220,7 @@ public class confUpdater {
                     }
                 }
 
-                debug("Enter Screen Width in Pixels)\n" +
+                debug("Enter Screen Width in Pixels\n" +
                         "Current Value: '"+sWidth+"'\n" +
                         "Enter '--' to not change at all.\n");
 
@@ -239,6 +247,73 @@ public class confUpdater {
                     }
                 }
 
+                debug("Enter Font Size in Pixels (13 for 320x240 3.2\" screens, increase if you find it very hard to read)\n" +
+                        "Current Value: '"+fontSize+"'\n" +
+                        "Enter '--' to not change at all.\n");
+
+                String inputFontSize = b.readLine();
+                if(!inputFontSize.equals("--"))
+                {
+                    try
+                    {
+                        double s = Double.parseDouble(inputFontSize);
+                        if(s<0)
+                        {
+                            debug("Font size cant be less that 0. Try Again!");
+                            continue;
+                        }
+                        else
+                        {
+                            fontSize = s;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        debug("Wrong input. Try Again!");
+                        continue;
+                    }
+                }
+
+                debug("Enter goodColour HTML Color (Color shown across Gauges when Pi-Hole is Enabled)\n"+
+                        "Skip if you don't understand (Read the github readme :P)\n"+
+                        "\nCurrent Value: '"+goodColour+"'\n"+
+                        "Enter '--' to not change at all.\n");
+
+                String goodColourInput = b.readLine();
+                if(!goodColourInput.equals("--"))
+                {
+                    if(goodColourInput.startsWith("#") && goodColourInput.length()==7)
+                    {
+                        goodColour = goodColourInput;
+                    }
+                    else
+                    {
+                        debug("Invalid HTML Color code. Skip if you dont understand, or read GitHub Readme!");
+                        continue;
+                    }
+                }
+
+                debug("Enter badColour HTML Color (Color shown across Gauges when Pi-Hole is Disabled)\n"+
+                        "Skip if you don't understand (Read the github readme :P)\n"+
+                        "\nCurrent Value: '"+badColour+"'\n"+
+                        "Enter '--' to not change at all.\n");
+
+                String badColourInput = b.readLine();
+                if(!badColourInput.equals("--"))
+                {
+                    if(badColourInput.startsWith("#") && badColourInput.length()==7)
+                    {
+                        badColour = badColourInput;
+                    }
+                    else
+                    {
+                        debug("Invalid HTML Color code. Skip if you dont understand, or read GitHub Readme!");
+                        continue;
+                    }
+                }
+
+
+
                 debug("\n\nNew Config :" +
                         "\nDebug Mode : "+debugMode+
                         "\nPane Changer Mode : "+isPaneChangeTimerOn+
@@ -247,17 +322,22 @@ public class confUpdater {
                         "\nPane Changer Task Sleep (Milliseconds) : "+paneChangerTaskSleep+
                         "\nPi-Hole Telnet IP : "+telNetIP+
                         "\nPi-Hole Telnet Port : "+telNetPort+
+                        "\nScreen Height : "+sHeight+
+                        "\nScreen Width : "+sWidth+
+                        "\nFont Size : "+fontSize+
+                        "\nGood Color Code : "+goodColour+
+                        "\nBad Color Code : "+badColour+
                         "\nAPPLY SETTINGS? [Y/N]");
 
                 String choice = b.readLine();
                 if(choice.equalsIgnoreCase("Y"))
                 {
                     FileWriter f = new FileWriter(new File("config"));
-                    f.write(debugMode+"::"+isPaneChangeTimerOn+"::"+piHoleStatsFetcherSleep+"::"+systemStatsFetcherSleep+"::"+paneChangerTaskSleep+"::"+telNetIP+"::"+telNetPort+"::"+sHeight+"::"+sWidth+"::");
+                    f.write(debugMode+"::"+isPaneChangeTimerOn+"::"+piHoleStatsFetcherSleep+"::"+systemStatsFetcherSleep+"::"+paneChangerTaskSleep+"::"+telNetIP+"::"+telNetPort+"::"+sHeight+"::"+sWidth+"::"+fontSize+"::"+goodColour+"::"+badColour+"::");
                     f.flush();
                     f.close();
 
-                    debug("Applied Settings! Now run 'sudo ./piHoleLCDStat' to start!");
+                    debug("Applied Settings! Now run './piHoleLCDStat' to start!");
                 }
                 else
                 {
