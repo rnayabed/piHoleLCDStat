@@ -47,7 +47,7 @@ cd <piHoleLCDStat extracted Directory>
 ```
 ### Screenshots
 
-[3.2" 320x240 display](https://github.com/dubbadhar/piHoleLCDStat/blob/master/screenshots/3_320x240/README.md)
+[3.2" 320x240 display](https://github.com/dubbadhar/piHoleLCDStat/blob/master/screenshots/3.2_320x240/README.md)
 
 [7" 1024x600 display](https://github.com/dubbadhar/piHoleLCDStat/blob/master/screenshots/7_1024x600/README.md)
 
