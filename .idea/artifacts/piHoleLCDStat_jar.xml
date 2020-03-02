@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="piHoleLCDStat:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/piHoleLCDStat_jar</output-path>
-    <root id="archive" name="piHoleLCDStat.jar">
-      <element id="module-output" name="piHoleLCDStat" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/eu/hansolo/Medusa/11.2/Medusa-11.2.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>
