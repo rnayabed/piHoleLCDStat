@@ -1,0 +1,18 @@
+.root{
+    -fx-background-color:black;
+    -fx-text-fill:white;
+}
+
+.bg{
+    -fx-background-color:black;
+}
+
+Label {
+    -fx-text-fill:white;
+    -fx-font-family: "Roboto Regular";
+}
+
+.scroll-pane {
+   -fx-background: black;
+   -fx-border-color: black;
+}

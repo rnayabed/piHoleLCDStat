@@ -8,7 +8,7 @@ public class confUpdater {
     {
         try
         {
-            debug("piHoleLCDStat v1.0\n" +
+            debug("piHoleLCDStat v1.1\n" +
                     "By https://github.com/dubbadhar/piHoleLCDStat\n");
 
             boolean debugMode,isPaneChangeTimerOn;

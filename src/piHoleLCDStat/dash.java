@@ -183,10 +183,10 @@ public class dash extends StackPane {
             uniqueClientsLabel = new Label("0");
             HBox uniqueClientsH = new HBox(new Label("Unique Clients: "),uniqueClientsLabel);
 
-            topDomainLabel = new Label("Getting ...");
+            topDomainLabel = new Label();
             topDomainLabel.setWrapText(true);
 
-            topAdLabel = new Label("Getting ...");
+            topAdLabel = new Label();
             topAdLabel.setWrapText(true);
 
             topClientLabel = new Label();
@@ -375,7 +375,7 @@ public class dash extends StackPane {
                 while (!isQuit) {
                     int l = br.read();
 
-                    if (output.toString().endsWith("---EOM---")) {
+                    if (output.toString().endsWith("---EOM---") && !output.toString().replace("\n","").equals("---EOM---")) {
                         switch (prevCommand) {
                             case ">stats":
                                 String[] outputArr = output.toString().split("\n");
