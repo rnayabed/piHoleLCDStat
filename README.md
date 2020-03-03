@@ -6,8 +6,6 @@ Built with JavaFX, Java
 
 **This program uses the Pi-Hole Telnet API and NOT THE JSON API**
 
-**Raspberry Pi : It is recommended to use the `Raspbian Desktop with Recommended Software installed` image for Raspberry Pi, as I never used the lite image to test it out. You can just turn on `Console Auto-login` from `raspi-config` to avoid loading the DE**
-
 ### How to install?
 
 1. Download the latest zip from [releases](https://github.com/dubbadhar/piHoleLCDStat/releases).

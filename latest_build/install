@@ -2,6 +2,6 @@ echo "Installing Fonts ..."
 sudo cp Roboto-Regular.ttf /usr/share/fonts/truetype/
 fc-cache -v -f
 echo "... Done!"
-
+sudo apt install libpangoft2-1.0.
 sudo ./piHoleLCDStat_edit_config
 
