@@ -205,7 +205,6 @@ public class dash extends StackPane {
             otherPiHoleStatsVBox = new VBox(otherPiHoleStatsHeading,hostLabel,ipLabel,statusH,uniqueDomansH,queriesForwardedH,queriesCachedH,clientsEverSeenH,uniqueClientsH,topDomainLabel,topAdLabel,topClientLabel);
             statusLabel.setTextFill(Color.LIGHTGREEN);
             otherPiHoleStatsVBox.setPadding(new Insets(0,5,0,5));
-            otherPiHoleStatsVBox.setSpacing(3);
             otherPiHoleStatsVBox.getStyleClass().add("bg");
 
 
