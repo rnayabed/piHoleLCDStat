@@ -2,6 +2,8 @@
 
 A [Pi-Hole](https://pi-hole.net/) + System Info dash for [Raspberry Pi](https://www.raspberrypi.org/)
 
+[Screenshots](https://github.com/dubbadhar/piHoleLCDStat/blob/master/screenshots/README.md)
+
 Built with JavaFX, Java
 
 **This program uses the Pi-Hole Telnet API and NOT THE JSON API**
@@ -57,12 +59,6 @@ cd <piHoleLCDStat extracted Directory>
 ```
 
 **This method is not recommeneded as `~/.bashrc` runs every time an SSH connection is made to the Pi. You can use Ctrl+C to always quit when a new piHoleLCDStat instance is made.**
-
-## Screenshots
-
-[3.2" 320x240 display](https://github.com/dubbadhar/piHoleLCDStat/blob/master/screenshots/3.2_320x240/README.md)
-
-[7" 1024x600 display](https://github.com/dubbadhar/piHoleLCDStat/blob/master/screenshots/7_1024x600/README.md)
 
 ## Libraries Used
 * [Medusa](https://github.com/HanSolo/Medusa) - Gauges
