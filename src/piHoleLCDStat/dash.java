@@ -1,62 +1,21 @@
 package piHoleLCDStat;
 
-import eu.hansolo.medusa.Gauge;
-import eu.hansolo.medusa.Section;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.CacheHint;
 import javafx.scene.control.Label;
-import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 
 import java.io.*;
 import java.net.Socket;
 
-public class dash extends StackPane {
-    Gauge queriesBlockedGauge;
+public class dash extends dashBase {
 
-    VBox queriesPane;
-    Gauge queriesGauge;
-
-    VBox systemStatsVBox;
-    VBox otherPiHoleStatsVBox;
-
-    Gauge cpuGauge;
-    Gauge memoryGauge;
-    
-    Label queriesPaneMoreInfoLabel;
-
-    Gauge tempGauge;
-    Gauge diskUsageGauge;
-
-    boolean debugMode = false;
-    boolean isPaneChangeTimerOn = true;
-
+    boolean debugMode = false, isPaneChangeTimerOn = true, piHoleStatus;
     long piHoleStatsFetcherSleep, systemStatsFetcherSleep, paneChangerTaskSleep;
-
     String telNetIP;
-    int telNetPort;
-
-    double sHeight, sWidth;
-
-    boolean piHoleStatus;
-
-    Label statusLabel;
-    Label uniqueDomainsLabel;
-    Label queriesForwardedLabel;
-    Label queriesCachedLabel;
-    Label clientsEverSeenLabel;
-    Label uniqueClientsLabel;
-    Label topDomainLabel;
-    Label topAdLabel;
-    Label topClientLabel;
-
+    int telNetPort, topDomainsLimit, topClientsLimit, topAdsLimit, topDomains =0, topClients=0, topAds=0;
+    double sHeight, sWidth, fontSize;
     Color goodColour, badColour;
-
-    double fontSize;
 
     public dash()
     {
@@ -64,182 +23,23 @@ public class dash extends StackPane {
             readConfig();
             debug("Init dash ...");
 
-            setStyle("-fx-font-size: "+fontSize);
-            queriesBlockedGauge = new Gauge();
-            queriesBlockedGauge.setSkinType(Gauge.SkinType.SLIM);
-            queriesBlockedGauge.setValueColor(Color.WHITE);
-            queriesBlockedGauge.setTitleColor(Color.WHITE);
-            queriesBlockedGauge.setBarColor(goodColour);
-            queriesBlockedGauge.setTitle("Queries Blocked");
-            queriesBlockedGauge.setValue(0);
-            queriesBlockedGauge.getStyleClass().add("bg");
-            queriesBlockedGauge.setUnitColor(Color.WHITE);
-            queriesBlockedGauge.setUnit("%");
-            queriesBlockedGauge.setCache(true);
-            queriesBlockedGauge.setCacheHint(CacheHint.SPEED);
-
-            queriesGauge = new Gauge();
-            queriesGauge.setSkinType(Gauge.SkinType.TILE_SPARK_LINE);
-            queriesGauge.setValueColor(Color.WHITE);
-            queriesGauge.setTitleColor(Color.WHITE);
-            queriesGauge.setTitle("Total Queries");
-            queriesGauge.setValue(0);
-            queriesGauge.setBackgroundPaint(Paint.valueOf("#000000"));
-            queriesGauge.setUnit("0");
-            queriesGauge.setCache(true);
-            queriesGauge.setBarColor(goodColour);
-            queriesGauge.setCacheHint(CacheHint.SPEED);
-
-            cpuGauge = new Gauge();
-            cpuGauge.setSkinType(Gauge.SkinType.SIMPLE_SECTION);
-            cpuGauge.setTitleColor(Color.WHITE);
-            cpuGauge.setTitle("CPU");
-            cpuGauge.setValue(temp);
-            cpuGauge.setValueColor(Color.WHITE);
-            cpuGauge.setUnitColor(Color.WHITE);
-            cpuGauge.setSections(new Section(0,60,Color.GREEN), new Section(60.01,80,Color.ORANGE), new Section(80.01,100,Color.RED));
-            cpuGauge.getStyleClass().add("bg");
-            cpuGauge.setUnit("%");
-            cpuGauge.setCache(true);
-            cpuGauge.setCacheHint(CacheHint.SPEED);
-
-            memoryGauge = new Gauge();
-            memoryGauge.setSkinType(Gauge.SkinType.SIMPLE_SECTION);
-            memoryGauge.setTitleColor(Color.WHITE);
-            memoryGauge.setTitle("MEM");
-            memoryGauge.setValue(0);
-            memoryGauge.setValueColor(Color.WHITE);
-            memoryGauge.setUnitColor(Color.WHITE);
-            memoryGauge.setSections(new Section(0,65,Color.GREEN), new Section(65.01,75,Color.ORANGE), new Section(75.01,100,Color.RED));
-            memoryGauge.getStyleClass().add("bg");
-            memoryGauge.setUnit("%");
-            memoryGauge.setCache(true);
-            memoryGauge.setCacheHint(CacheHint.SPEED);
-
-            tempGauge = new Gauge();
-            tempGauge.setSkinType(Gauge.SkinType.SIMPLE_SECTION);
-            tempGauge.setTitleColor(Color.WHITE);
-            tempGauge.setTitle("TEMP");
-            tempGauge.setValue(temp);
-            tempGauge.setValueColor(Color.WHITE);
-            tempGauge.setUnitColor(Color.WHITE);
-            tempGauge.setSections(new Section(0,40,Color.BLUE), new Section(40.01,60,Color.GREEN), new Section(60.01,70,Color.ORANGE), new Section(70.01,100, Color.RED));
-            tempGauge.getStyleClass().add("bg");
-            tempGauge.setUnit("°C");
-            tempGauge.setCache(true);
-            tempGauge.setCacheHint(CacheHint.SPEED);
-
-            diskUsageGauge = new Gauge();
-            diskUsageGauge.setSkinType(Gauge.SkinType.SIMPLE_SECTION);
-            diskUsageGauge.setTitleColor(Color.WHITE);
-            diskUsageGauge.setTitle("DISK");
-            diskUsageGauge.setValue(temp);
-            diskUsageGauge.setValueColor(Color.WHITE);
-            diskUsageGauge.setUnitColor(Color.WHITE);
-            diskUsageGauge.setSections(new Section(0,75,Color.GREEN), new Section(75.01,100,Color.RED));
-            diskUsageGauge.getStyleClass().add("bg");
-            diskUsageGauge.setUnit("%");
-            diskUsageGauge.setCache(true);
-            diskUsageGauge.setCacheHint(CacheHint.SPEED);
-
-
-            HBox h1 = new HBox(cpuGauge,memoryGauge);
-            h1.setSpacing(5);
-            h1.setAlignment(Pos.CENTER);
-            h1.setPadding(new Insets(0,1,0,1));
-
-            HBox h2 = new HBox(tempGauge,diskUsageGauge);
-            h2.setSpacing(5);
-            h2.setAlignment(Pos.CENTER);
-            h2.setPadding(new Insets(0,1,0,1));
-
-            systemStatsVBox = new VBox(h1,h2);
-            VBox.setVgrow(systemStatsVBox,Priority.SOMETIMES);
-            systemStatsVBox.setAlignment(Pos.CENTER);
-            systemStatsVBox.getStyleClass().add("bg");
-
-
-            Label x = new Label("Other Pi-Hole Stats");
-            HBox otherPiHoleStatsHeading = new HBox(x);
-            otherPiHoleStatsHeading.setAlignment(Pos.CENTER);
-            HBox.setHgrow(otherPiHoleStatsHeading,Priority.SOMETIMES);
-            otherPiHoleStatsHeading.setPadding(new Insets(0,0,2,0));
-
-            statusLabel = new Label("Enabled");
-            HBox statusH = new HBox(new Label("Status: "),statusLabel);
-
-            uniqueDomainsLabel = new Label("0");
-            HBox uniqueDomansH = new HBox(new Label("Unique Domains: "),uniqueDomainsLabel);
-
-            queriesForwardedLabel = new Label("0");
-            HBox queriesForwardedH = new HBox(new Label("Queries Forwarded: "),queriesForwardedLabel);
-
-            queriesCachedLabel = new Label("0");
-            HBox queriesCachedH = new HBox(new Label("Queries Cached: "),queriesCachedLabel);
-
-            clientsEverSeenLabel = new Label("0");
-            HBox clientsEverSeenH = new HBox(new Label("Clients ever seen: "),clientsEverSeenLabel);
-
-            uniqueClientsLabel = new Label("0");
-            HBox uniqueClientsH = new HBox(new Label("Unique Clients: "),uniqueClientsLabel);
-
-            topDomainLabel = new Label();
-            topDomainLabel.setWrapText(true);
-
-            topAdLabel = new Label();
-            topAdLabel.setWrapText(true);
-
-            topClientLabel = new Label();
-            topClientLabel.setWrapText(true);
-
             String hostName = getShellOutput("hostname");
             String ip = getShellOutput("hostname -I");
 
-            Label hostLabel = new Label("Hostname : "+hostName);
-            hostLabel.setWrapText(true);
-
-            Label ipLabel = new Label("IP : "+ip);
-            ipLabel.setWrapText(true);
-
-
-            otherPiHoleStatsVBox = new VBox(otherPiHoleStatsHeading,hostLabel,ipLabel,statusH,uniqueDomansH,queriesForwardedH,queriesCachedH,clientsEverSeenH,uniqueClientsH,topDomainLabel,topAdLabel,topClientLabel);
-            statusLabel.setTextFill(Color.LIGHTGREEN);
-            otherPiHoleStatsVBox.setPadding(new Insets(0,5,0,5));
-            otherPiHoleStatsVBox.getStyleClass().add("bg");
-
-
-            getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-
-            setPadding(new Insets(5));
-            getChildren().add(systemStatsVBox);
-            getChildren().add(otherPiHoleStatsVBox);
-
-
-            queriesPaneMoreInfoLabel = new Label("0 Blocked\n0 Domains On Blocklist");
-            queriesPaneMoreInfoLabel.setPadding(new Insets(0,0,0,5));
-
-            queriesPane = new VBox(queriesGauge,queriesPaneMoreInfoLabel);
-            VBox.setVgrow(queriesGauge,Priority.SOMETIMES);
-            queriesPane.getStyleClass().add("bg");
-            queriesPane.setSpacing(5);
-            getChildren().add(queriesPane);
-            getChildren().add(queriesBlockedGauge);
+            initNodes();
 
             setPrefSize(sWidth,sHeight);
+            setStyle("-fx-font-size: "+fontSize);
 
-            queriesBlockedGauge.toFront();
+            hostLabel.setText("Hostname : "+hostName);
+            ipLabel.setText("IP : "+ip);
 
-            topClientLabel.setPrefWidth(sWidth-10);
-            topDomainLabel.setPrefWidth(sWidth-10);
-            topAdLabel.setPrefWidth(sWidth-10);
-            hostLabel.setPrefWidth(sWidth-10);
-            ipLabel.setPrefWidth(sWidth-10);
+            cpuGauge.setValue(cpuLoad);
+            diskUsageGauge.setValue(diskUsagePercent);
+            tempGauge.setValue(temp);
 
-            /*topClientLabel.prefWidthProperty().bind(otherPiHoleStatsVBox.widthProperty());
-            topDomainLabel.prefWidthProperty().bind(otherPiHoleStatsVBox.widthProperty());
-            topAdLabel.prefWidthProperty().bind(otherPiHoleStatsVBox.widthProperty());
-            hostLabel.prefWidthProperty().bind(otherPiHoleStatsVBox.widthProperty());
-            ipLabel.prefWidthProperty().bind(otherPiHoleStatsVBox.widthProperty());*/
+            queriesGauge.setBarColor(goodColour);
+            queriesBlockedGauge.setBarColor(goodColour);
 
             setOnTouchPressed(event -> switchNextPane());
 
@@ -258,14 +58,20 @@ public class dash extends StackPane {
 
     private void switchNextPane()
     {
-        if (currentPane == pane.queries) {
-            Platform.runLater(() -> switchPane(pane.systemStats));
-        } else if (currentPane == pane.systemStats) {
-            Platform.runLater(() -> switchPane(pane.otherPiHoleStats));
-        } else if(currentPane == pane.otherPiHoleStats) {
+        if (currentPane == pane.topDomains) {
+            Platform.runLater(() -> switchPane(pane.topClients));
+        } else if (currentPane == pane.topClients) {
+            Platform.runLater(() -> switchPane(pane.topAds));
+        } else if(currentPane == pane.topAds) {
             Platform.runLater(() -> switchPane(pane.queriesBlocked));
         } else if(currentPane == pane.queriesBlocked) {
             Platform.runLater(() -> switchPane(pane.queries));
+        } else if(currentPane == pane.queries) {
+            Platform.runLater(() -> switchPane(pane.systemStats));
+        } else if(currentPane == pane.systemStats) {
+            Platform.runLater(() -> switchPane(pane.otherPiHoleStats));
+        } else if(currentPane == pane.otherPiHoleStats) {
+            Platform.runLater(() -> switchPane(pane.topDomains));
         }
     }
 
@@ -294,6 +100,10 @@ public class dash extends StackPane {
         goodColour = Color.valueOf(conf[10]);
         badColour = Color.valueOf(conf[11]);
 
+        topDomainsLimit = Integer.parseInt(conf[12]);
+        topClientsLimit = Integer.parseInt(conf[13]);
+        topAdsLimit = Integer.parseInt(conf[14]);
+
         bf.close();
 
         debug("... Done!");
@@ -309,13 +119,19 @@ public class dash extends StackPane {
             systemStatsVBox.toFront();
         else if(p==pane.otherPiHoleStats)
             otherPiHoleStatsVBox.toFront();
+        else if(p==pane.topDomains)
+            topDomainsMainVBox.toFront();
+        else if(p==pane.topClients)
+            topClientsMainVBox.toFront();
+        else if(p==pane.topAds)
+            topAdsMainVBox.toFront();
 
         currentPane = p;
     }
     
     pane currentPane = pane.queriesBlocked;
     enum pane{
-        queriesBlocked,queries,systemStats,otherPiHoleStats
+        queriesBlocked,queries,systemStats,otherPiHoleStats, topDomains, topClients, topAds
     }
 
 
@@ -351,9 +167,14 @@ public class dash extends StackPane {
     double queriesBlockedPercentToday=0;
     long totalDnsQueries=0;
     long totalBlocked = 0;
-    double upperLimit=0;
 
     double temp=0;
+
+    enum command{
+        stats,topAds,topDomains,topClients
+    }
+
+    command lastCommand;
 
     Task<Void> piHoleStatsFetcher = new Task<>() {
         @Override
@@ -365,7 +186,7 @@ public class dash extends StackPane {
                 br = new BufferedReader(new InputStreamReader(s.getInputStream()));
                 debug("... Done! Ready!");
 
-                prevCommand = ">stats";
+                lastCommand = command.stats;
                 bw.write(">stats\r\n");
                 bw.flush();
 
@@ -375,8 +196,8 @@ public class dash extends StackPane {
                     int l = br.read();
 
                     if (output.toString().endsWith("---EOM---") && !output.toString().replace("\n","").equals("---EOM---")) {
-                        switch (prevCommand) {
-                            case ">stats":
+                        switch (lastCommand) {
+                            case stats:
                                 String[] outputArr = output.toString().split("\n");
                                 for (String eachVal : outputArr) {
                                     String[] part = eachVal.split(" ");
@@ -420,45 +241,90 @@ public class dash extends StackPane {
                                     queriesBlockedGauge.setValue(queriesBlockedPercentToday);
 
                                     queriesGauge.setValue(totalDnsQueries);
+
+                                    queriesGauge.setMaxValue(totalDnsQueries);
+
+                                    if(totalDnsQueries>500)
+                                    {
+                                        queriesGauge.setMinValue(totalDnsQueries-500);
+                                    }
+
                                     queriesPaneMoreInfoLabel.setText(queriesBlockedToday + " Blocked\n" + totalBlocked + " Domains On Blocklist");
                                 });
 
-                                if (upperLimit < totalDnsQueries) {
-                                    upperLimit = totalDnsQueries;
-                                    Platform.runLater(() -> queriesGauge.setMaxValue(totalDnsQueries));
-                                    if (totalDnsQueries > 500) {
-                                        Platform.runLater(() -> queriesGauge.setMinValue(totalDnsQueries - 500));
+
+                                Thread.sleep(piHoleStatsFetcherSleep / 4);
+                                lastCommand = command.topDomains;
+                                bw.write(">top-domains ("+topDomainsLimit+")\r\n");
+                                bw.flush();
+                                break;
+                            case topDomains:
+                                String[] lines = output.toString().split("\n");
+                                int noOfDomains = lines.length - 1;
+                                if(topDomains!=noOfDomains)
+                                {
+                                    topDomains = noOfDomains;
+                                    Platform.runLater(()->topDomainsVBox.getChildren().clear());
+                                    for(int i = 1; i < topDomains; i++)
+                                    {
+                                        String[] r = lines[i].split(" ");
+                                        Label eachLabel = new Label(i+". "+r[2]+" - "+r[1]+" Queries");
+                                        eachLabel.setWrapText(true);
+                                        Platform.runLater(()->topDomainsVBox.getChildren().add(eachLabel));
                                     }
                                 }
+
                                 Thread.sleep(piHoleStatsFetcherSleep / 4);
-                                prevCommand = ">top-domains (1)";
-                                bw.write(">top-domains (1)\r\n");
+                                lastCommand = command.topAds;
+                                bw.write(">top-ads ("+topAdsLimit+")\r\n");
                                 bw.flush();
                                 break;
-                            case ">top-domains (1)":
-                                String[] topDomainArr = secondLineFetcher(output.toString()).split(" ");
-                                Platform.runLater(() -> topDomainLabel.setText("Top Domain: (" + topDomainArr[1] + " Queries)\n" + topDomainArr[2]));
+                            case topAds:
+
+                                String[] lines2 = output.toString().split("\n");
+                                int noOfAds = lines2.length - 1;
+                                if(topAds!=noOfAds)
+                                {
+                                    topAds = noOfAds;
+                                    Platform.runLater(()->topAdsVBox.getChildren().clear());
+                                    for(int i = 1; i < topAds; i++)
+                                    {
+                                        String[] r = lines2[i].split(" ");
+                                        Label eachLabel = new Label(i+". "+r[2]+" - "+r[1]+" Queries");
+                                        eachLabel.setWrapText(true);
+                                        Platform.runLater(()->topAdsVBox.getChildren().add(eachLabel));
+                                    }
+                                }
+
+
                                 Thread.sleep(piHoleStatsFetcherSleep / 4);
-                                prevCommand = ">top-ads (1)";
-                                bw.write(">top-ads (1)\r\n");
+                                lastCommand = command.topClients;
+                                bw.write(">top-clients ("+topClientsLimit+")\r\n");
                                 bw.flush();
                                 break;
-                            case ">top-ads (1)":
-                                String[] topAdArr = secondLineFetcher(output.toString()).split(" ");
-                                Platform.runLater(() -> topAdLabel.setText("Top Ad: (" + topAdArr[1] + " Queries)\n" + topAdArr[2]));
+                            case topClients:
+                                String[] lines3 = output.toString().split("\n");
+                                int noOfTopClients = lines3.length - 1;
+                                if(topClients!=noOfTopClients)
+                                {
+                                    topClients = noOfTopClients;
+                                    Platform.runLater(()->topClientsVBox.getChildren().clear());
+                                    for(int i = 1; i < topClients; i++)
+                                    {
+                                        String[] r = lines3[i].split(" ");
+                                        String txt;
+                                        if(r.length == 4)
+                                            txt = i+". "+r[2]+" - "+r[3]+" - "+r[1]+" Queries";
+                                        else
+                                            txt = i+". "+r[2]+" - "+r[1]+" Queries";
+                                        Label eachLabel = new Label(txt);
+                                        eachLabel.setWrapText(true);
+                                        Platform.runLater(()->topClientsVBox.getChildren().add(eachLabel));
+                                    }
+                                }
+
                                 Thread.sleep(piHoleStatsFetcherSleep / 4);
-                                prevCommand = ">top-clients (1)";
-                                bw.write(">top-clients (1)\r\n");
-                                bw.flush();
-                                break;
-                            case ">top-clients (1)":
-                                String[] topClient = secondLineFetcher(output.toString()).split(" ");
-                                if (topClient.length == 4)
-                                    Platform.runLater(() -> topClientLabel.setText("Top Client: (" + topClient[1] + " Queries)\n" + topClient[2] + "\n" + topClient[3]));
-                                else
-                                    Platform.runLater(() -> topClientLabel.setText("Top Client:  (" + topClient[1] + " Queries)\n" + topClient[2]));
-                                Thread.sleep(piHoleStatsFetcherSleep / 4);
-                                prevCommand = ">stats";
+                                lastCommand = command.stats;
                                 bw.write(">stats\r\n");
                                 bw.flush();
                                 break;
@@ -479,8 +345,6 @@ public class dash extends StackPane {
             return null;
         }
     };
-
-    String prevCommand="";
 
     boolean prevStatus = false;
     private void setPiHoleStatusUIChanges()
