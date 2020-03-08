@@ -141,7 +141,6 @@ public class dash extends dashBase {
     {
         debug("Starting piHoleStatsFetcher ...");
         Thread t1 = new Thread(piHoleStatsFetcher);
-        t1.setPriority(1);
         t1.start();
 
         debug("Starting systemStatsFetcher ...");
