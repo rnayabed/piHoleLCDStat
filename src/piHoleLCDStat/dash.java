@@ -13,7 +13,7 @@ public class dash extends dashBase {
     boolean debugMode = false, isPaneChangeTimerOn = true, piHoleStatus;
     long piHoleStatsFetcherSleep, systemStatsFetcherSleep, paneChangerTaskSleep;
     String telNetIP;
-    int telNetPort, topDomainsLimit, topClientsLimit, topAdsLimit, topDomains =0, topClients=0, topAds=0;
+    int telNetPort, topDomainsLimit, topClientsLimit, topAdsLimit;
     double sHeight, sWidth, fontSize;
     Color goodColour, badColour;
 
@@ -259,42 +259,29 @@ public class dash extends dashBase {
                                 break;
                             case topDomains:
                                 String[] lines = output.toString().split("\n");
-                                int noOfDomains = lines.length - 1;
-                                if(topDomains!=noOfDomains)
+                                Platform.runLater(()->topDomainsVBox.getChildren().clear());
+                                for(int i = 1; i < lines.length - 1; i++)
                                 {
-                                    topDomains = noOfDomains;
-                                    Platform.runLater(()->topDomainsVBox.getChildren().clear());
-                                    for(int i = 1; i < topDomains; i++)
-                                    {
-                                        String[] r = lines[i].split(" ");
-                                        Label eachLabel = new Label(i+". "+r[2]+" - "+r[1]+" Queries");
-                                        eachLabel.setWrapText(true);
-                                        Platform.runLater(()->topDomainsVBox.getChildren().add(eachLabel));
-                                    }
+                                    String[] r = lines[i].split(" ");
+                                    Label eachLabel = new Label(i+". "+r[2]+" - "+r[1]+" Queries");
+                                    eachLabel.setWrapText(true);
+                                    Platform.runLater(()->topDomainsVBox.getChildren().add(eachLabel));
                                 }
-
                                 Thread.sleep(piHoleStatsFetcherSleep / 4);
                                 lastCommand = command.topAds;
                                 bw.write(">top-ads ("+topAdsLimit+")\r\n");
                                 bw.flush();
                                 break;
                             case topAds:
-
                                 String[] lines2 = output.toString().split("\n");
-                                int noOfAds = lines2.length - 1;
-                                if(topAds!=noOfAds)
+                                Platform.runLater(()->topAdsVBox.getChildren().clear());
+                                for(int i = 1; i < lines2.length - 1; i++)
                                 {
-                                    topAds = noOfAds;
-                                    Platform.runLater(()->topAdsVBox.getChildren().clear());
-                                    for(int i = 1; i < topAds; i++)
-                                    {
-                                        String[] r = lines2[i].split(" ");
-                                        Label eachLabel = new Label(i+". "+r[2]+" - "+r[1]+" Queries");
-                                        eachLabel.setWrapText(true);
-                                        Platform.runLater(()->topAdsVBox.getChildren().add(eachLabel));
-                                    }
+                                    String[] r = lines2[i].split(" ");
+                                    Label eachLabel = new Label(i+". "+r[2]+" - "+r[1]+" Queries");
+                                    eachLabel.setWrapText(true);
+                                    Platform.runLater(()->topAdsVBox.getChildren().add(eachLabel));
                                 }
-
 
                                 Thread.sleep(piHoleStatsFetcherSleep / 4);
                                 lastCommand = command.topClients;
@@ -303,23 +290,18 @@ public class dash extends dashBase {
                                 break;
                             case topClients:
                                 String[] lines3 = output.toString().split("\n");
-                                int noOfTopClients = lines3.length - 1;
-                                if(topClients!=noOfTopClients)
+                                Platform.runLater(()->topClientsVBox.getChildren().clear());
+                                for(int i = 1; i < lines3.length - 1; i++)
                                 {
-                                    topClients = noOfTopClients;
-                                    Platform.runLater(()->topClientsVBox.getChildren().clear());
-                                    for(int i = 1; i < topClients; i++)
-                                    {
-                                        String[] r = lines3[i].split(" ");
-                                        String txt;
-                                        if(r.length == 4)
-                                            txt = i+". "+r[2]+" - "+r[3]+" - "+r[1]+" Queries";
-                                        else
-                                            txt = i+". "+r[2]+" - "+r[1]+" Queries";
-                                        Label eachLabel = new Label(txt);
-                                        eachLabel.setWrapText(true);
-                                        Platform.runLater(()->topClientsVBox.getChildren().add(eachLabel));
-                                    }
+                                    String[] r = lines3[i].split(" ");
+                                    String txt;
+                                    if(r.length == 4)
+                                        txt = i+". "+r[2]+" - "+r[3]+" - "+r[1]+" Queries";
+                                    else
+                                        txt = i+". "+r[2]+" - "+r[1]+" Queries";
+                                    Label eachLabel = new Label(txt);
+                                    eachLabel.setWrapText(true);
+                                    Platform.runLater(()->topClientsVBox.getChildren().add(eachLabel));
                                 }
 
                                 Thread.sleep(piHoleStatsFetcherSleep / 4);
