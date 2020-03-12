@@ -15,8 +15,8 @@ import javafx.scene.paint.Paint;
 
 public class dashBase extends StackPane {
     Gauge queriesBlockedGauge, queriesGauge, cpuGauge, memoryGauge, tempGauge, diskUsageGauge;
-    VBox queriesPane, systemStatsVBox, otherPiHoleStatsVBox, topDomainsMainVBox, topAdsMainVBox, topClientsMainVBox, topDomainsVBox, topAdsVBox, topClientsVBox;
-    Label queriesPaneMoreInfoLabel, statusLabel, uniqueDomainsLabel, queriesForwardedLabel, queriesCachedLabel, clientsEverSeenLabel, uniqueClientsLabel, hostLabel, ipLabel;
+    VBox queriesPane, systemStatsVBox, moreSystemStatsVBox, topDomainsMainVBox, topAdsMainVBox, topClientsMainVBox, topDomainsVBox, topAdsVBox, topClientsVBox;
+    Label queriesPaneMoreInfoLabel, uptimeLabel, statusLabel, uniqueDomainsLabel, queriesForwardedLabel, queriesCachedLabel, clientsEverSeenLabel, uniqueClientsLabel, hostLabel, ipLabel;
 
     public void initNodes()
     {
@@ -114,11 +114,10 @@ public class dashBase extends StackPane {
         systemStatsVBox.getStyleClass().add("bg");
 
 
-        Label x = new Label("Other Pi-Hole Stats");
-        HBox otherPiHoleStatsHeading = new HBox(x);
-        otherPiHoleStatsHeading.setAlignment(Pos.CENTER);
-        HBox.setHgrow(otherPiHoleStatsHeading,Priority.SOMETIMES);
-        otherPiHoleStatsHeading.setPadding(new Insets(0,0,2,0));
+        HBox moreSystemStatsHeading = new HBox();
+        moreSystemStatsHeading.setAlignment(Pos.CENTER);
+        HBox.setHgrow(moreSystemStatsHeading,Priority.SOMETIMES);
+        moreSystemStatsHeading.setPadding(new Insets(0,0,2,0));
 
         statusLabel = new Label("Enabled");
         HBox statusH = new HBox(new Label("Status: "),statusLabel);
@@ -138,6 +137,8 @@ public class dashBase extends StackPane {
         uniqueClientsLabel = new Label("0");
         HBox uniqueClientsH = new HBox(new Label("Unique Clients: "),uniqueClientsLabel);
 
+        uptimeLabel = new Label("Uptime : ");
+
 
         hostLabel= new Label();
         hostLabel.setWrapText(true);
@@ -146,10 +147,10 @@ public class dashBase extends StackPane {
         ipLabel.setWrapText(true);
 
 
-        otherPiHoleStatsVBox = new VBox(otherPiHoleStatsHeading,hostLabel,ipLabel,statusH,uniqueDomansH,queriesForwardedH,queriesCachedH,clientsEverSeenH,uniqueClientsH);
+        moreSystemStatsVBox = new VBox(moreSystemStatsHeading,hostLabel,ipLabel,statusH,uniqueDomansH,queriesForwardedH,queriesCachedH,clientsEverSeenH,uniqueClientsH,uptimeLabel);
         statusLabel.setTextFill(Color.LIGHTGREEN);
-        otherPiHoleStatsVBox.setPadding(new Insets(0,5,0,5));
-        otherPiHoleStatsVBox.getStyleClass().add("bg");
+        moreSystemStatsVBox.setPadding(new Insets(0,5,0,5));
+        moreSystemStatsVBox.getStyleClass().add("bg");
 
 
         getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -181,7 +182,7 @@ public class dashBase extends StackPane {
 
 
         setPadding(new Insets(5));
-        getChildren().addAll(systemStatsVBox, otherPiHoleStatsVBox, queriesPane, queriesBlockedGauge, topDomainsMainVBox, topClientsMainVBox, topAdsMainVBox);
+        getChildren().addAll(systemStatsVBox, moreSystemStatsVBox, queriesPane, queriesBlockedGauge, topDomainsMainVBox, topClientsMainVBox, topAdsMainVBox);
 
         queriesBlockedGauge.toFront();
 

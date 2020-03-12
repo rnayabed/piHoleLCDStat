@@ -31,8 +31,8 @@ public class dash extends dashBase {
             setPrefSize(sWidth,sHeight);
             setStyle("-fx-font-size: "+fontSize);
 
-            hostLabel.setText("Hostname : "+hostName);
-            ipLabel.setText("IP : "+ip);
+            hostLabel.setText("Hostname: "+hostName);
+            ipLabel.setText("IP: "+ip);
 
             cpuGauge.setValue(cpuLoad);
             diskUsageGauge.setValue(diskUsagePercent);
@@ -69,8 +69,8 @@ public class dash extends dashBase {
         } else if(currentPane == pane.queries) {
             Platform.runLater(() -> switchPane(pane.systemStats));
         } else if(currentPane == pane.systemStats) {
-            Platform.runLater(() -> switchPane(pane.otherPiHoleStats));
-        } else if(currentPane == pane.otherPiHoleStats) {
+            Platform.runLater(() -> switchPane(pane.moreSystemStats));
+        } else if(currentPane == pane.moreSystemStats) {
             Platform.runLater(() -> switchPane(pane.topDomains));
         }
     }
@@ -117,8 +117,8 @@ public class dash extends dashBase {
             queriesPane.toFront();
         else if(p==pane.systemStats)
             systemStatsVBox.toFront();
-        else if(p==pane.otherPiHoleStats)
-            otherPiHoleStatsVBox.toFront();
+        else if(p==pane.moreSystemStats)
+            moreSystemStatsVBox.toFront();
         else if(p==pane.topDomains)
             topDomainsMainVBox.toFront();
         else if(p==pane.topClients)
@@ -131,7 +131,7 @@ public class dash extends dashBase {
     
     pane currentPane = pane.queriesBlocked;
     enum pane{
-        queriesBlocked,queries,systemStats,otherPiHoleStats, topDomains, topClients, topAds
+        queriesBlocked,queries,systemStats,moreSystemStats, topDomains, topClients, topAds
     }
 
 
@@ -141,6 +141,7 @@ public class dash extends dashBase {
     {
         debug("Starting piHoleStatsFetcher ...");
         Thread t1 = new Thread(piHoleStatsFetcher);
+        t1.setPriority(1);
         t1.start();
 
         debug("Starting systemStatsFetcher ...");
@@ -156,6 +157,11 @@ public class dash extends dashBase {
             t3.setPriority(1);
             t3.start();
         }
+
+        debug("Starting uptimeRefresherTask ...");
+        Thread t4 = new Thread(uptimeRefresherTask);
+        t4.setPriority(1);
+        t4.start();
     }
 
     Socket s;
@@ -414,6 +420,22 @@ public class dash extends dashBase {
                 while (isPaneChangeTimerOn && !isQuit) {
                     Thread.sleep(paneChangerTaskSleep);
                     Platform.runLater(()->switchNextPane());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+    };
+
+    Task<Void> uptimeRefresherTask = new Task<>() {
+        @Override
+        protected Void call() {
+            try {
+                while (!isQuit) {
+                    String uptime = getShellOutput("uptime -p").replace("up", "Uptime:");
+                    Platform.runLater(() -> uptimeLabel.setText(uptime));
+                    Thread.sleep(1000);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

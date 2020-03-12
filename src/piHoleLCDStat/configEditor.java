@@ -2,7 +2,7 @@ package piHoleLCDStat;
 
 import java.io.*;
 
-public class confUpdater {
+public class configEditor {
 
     public static void main(String... args)
     {
