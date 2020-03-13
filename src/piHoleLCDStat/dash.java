@@ -8,6 +8,8 @@ import javafx.scene.paint.Color;
 import java.io.*;
 import java.net.Socket;
 
+import static piHoleLCDStat.programInfo.*;
+
 public class dash extends dashBase {
 
     boolean debugMode = false, isPaneChangeTimerOn = true, piHoleStatus;
@@ -20,6 +22,14 @@ public class dash extends dashBase {
     public dash()
     {
         try {
+            System.out.println("\n\npiHoleLCDStat"+
+                    "\nAuthor : "+AUTHOR+
+                    "\nVersion : "+VERSION+
+                    "\nSource : "+REPO_LINK+
+                    "\nBuild : "+BUILD_DATE+
+                    "\nJava Version : "+System.getProperty("java.version")+
+                    "\nJavaFX Version : "+System.getProperty("javafx.version")+"\n\n");
+
             readConfig();
             debug("Init dash ...");
 
@@ -157,11 +167,6 @@ public class dash extends dashBase {
             t3.setPriority(1);
             t3.start();
         }
-
-        debug("Starting uptimeRefresherTask ...");
-        Thread t4 = new Thread(uptimeRefresherTask);
-        t4.setPriority(1);
-        t4.start();
     }
 
     Socket s;
@@ -397,11 +402,15 @@ public class dash extends dashBase {
                         }
                     }
 
+                    String uptimeRawOutput = getShellOutput("uptime");
+
                     Platform.runLater(() -> {
                         tempGauge.setValue(temp);
                         memoryGauge.setValue((usedMem / totalMem) * 100);
                         cpuGauge.setValue(cpuLoad);
                         diskUsageGauge.setValue(diskUsagePercent);
+                        loadAverageLabel.setText(uptimeRawOutput.substring(uptimeRawOutput.indexOf("load")).replace("load average:","Load Average:"));
+                        uptimeLabel.setText(uptimeRawOutput.substring(uptimeRawOutput.indexOf("up"),uptimeRawOutput.indexOf(",")).replace("up","Uptime: "));
                     });
 
                     Thread.sleep(systemStatsFetcherSleep);
@@ -420,22 +429,6 @@ public class dash extends dashBase {
                 while (isPaneChangeTimerOn && !isQuit) {
                     Thread.sleep(paneChangerTaskSleep);
                     Platform.runLater(()->switchNextPane());
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-    };
-
-    Task<Void> uptimeRefresherTask = new Task<>() {
-        @Override
-        protected Void call() {
-            try {
-                while (!isQuit) {
-                    String uptime = getShellOutput("uptime -p").replace("up", "Uptime:");
-                    Platform.runLater(() -> uptimeLabel.setText(uptime));
-                    Thread.sleep(1000);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

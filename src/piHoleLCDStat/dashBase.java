@@ -16,7 +16,7 @@ import javafx.scene.paint.Paint;
 public class dashBase extends StackPane {
     Gauge queriesBlockedGauge, queriesGauge, cpuGauge, memoryGauge, tempGauge, diskUsageGauge;
     VBox queriesPane, systemStatsVBox, moreSystemStatsVBox, topDomainsMainVBox, topAdsMainVBox, topClientsMainVBox, topDomainsVBox, topAdsVBox, topClientsVBox;
-    Label queriesPaneMoreInfoLabel, uptimeLabel, statusLabel, uniqueDomainsLabel, queriesForwardedLabel, queriesCachedLabel, clientsEverSeenLabel, uniqueClientsLabel, hostLabel, ipLabel;
+    Label queriesPaneMoreInfoLabel, loadAverageLabel, uptimeLabel, statusLabel, uniqueDomainsLabel, queriesForwardedLabel, queriesCachedLabel, clientsEverSeenLabel, uniqueClientsLabel, hostLabel, ipLabel;
 
     public void initNodes()
     {
@@ -42,7 +42,6 @@ public class dashBase extends StackPane {
         queriesGauge.setBackgroundPaint(Paint.valueOf("#000000"));
         queriesGauge.setUnit("0");
         queriesGauge.setCache(true);
-
         queriesGauge.setCacheHint(CacheHint.SPEED);
 
         cpuGauge = new Gauge();
@@ -137,7 +136,11 @@ public class dashBase extends StackPane {
         uniqueClientsLabel = new Label("0");
         HBox uniqueClientsH = new HBox(new Label("Unique Clients: "),uniqueClientsLabel);
 
-        uptimeLabel = new Label("Uptime : ");
+        uptimeLabel = new Label();
+        uptimeLabel.setWrapText(true);
+
+        loadAverageLabel = new Label();
+        loadAverageLabel.setWrapText(true);
 
 
         hostLabel= new Label();
@@ -147,7 +150,7 @@ public class dashBase extends StackPane {
         ipLabel.setWrapText(true);
 
 
-        moreSystemStatsVBox = new VBox(moreSystemStatsHeading,hostLabel,ipLabel,statusH,uniqueDomansH,queriesForwardedH,queriesCachedH,clientsEverSeenH,uniqueClientsH,uptimeLabel);
+        moreSystemStatsVBox = new VBox(moreSystemStatsHeading,hostLabel,ipLabel,statusH,uniqueDomansH,queriesForwardedH,queriesCachedH,clientsEverSeenH,uniqueClientsH,uptimeLabel, loadAverageLabel);
         statusLabel.setTextFill(Color.LIGHTGREEN);
         moreSystemStatsVBox.setPadding(new Insets(0,5,0,5));
         moreSystemStatsVBox.getStyleClass().add("bg");
